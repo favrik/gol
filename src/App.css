@@ -30,3 +30,25 @@
     transform: rotate(360deg);
   }
 }
+
+.container {
+   width:800px;
+   margin:50px auto;
+}
+
+.cell {
+  width: 30px;
+  height: 30px;
+  display: block;
+  float: left;
+  margin: 5px;
+  border: 1px solid #ccc;
+}
+
+.cell-live {
+  background: #000;
+}
+
+.cell-dead {
+  background: #fff;
+}
