@@ -3,20 +3,28 @@ import React, { Component } from 'react';
 export default class Cell extends Component {
   constructor(props) {
     super(props);
-    this.state = { status: 'dead' };
-    this.handleClick = this.handleClick.bind(this);
+
+    this.state = { alive: props.data.alive };
+    this.toggleLife = this.toggleLife.bind(this);
   }
 
-  handleClick() {
-    this.setState(state => ({
-        status: state.status == 'dead' ? 'live' : 'dead'
-      })
+  toggleLife() {
+    let newState = !this.state.alive;
+
+    this.props.updater(this.props.data.index, newState)
+
+    this.setState(
+      state => ({ alive: newState })
     );
+  }
+
+  cssClass() {
+    return this.state.alive ? 'live' : 'dead';
   }
 
   render() {
     return (
-      <div className={'cell cell-' + this.state.status } onClick={this.handleClick}></div>
+      <div className={'cell cell-' + this.cssClass() } onClick={this.toggleLife}></div>
     );
   }
 }
