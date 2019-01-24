@@ -19,10 +19,24 @@ export default class Cell extends Component {
   }
 
   cssClass() {
-    return this.state.alive ? 'live' : 'dead';
+    return this.props.data.alive ? 'live' : 'dead';
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.props.data.alive !== nextProps.data.alive) {
+      return true;
+    }
+
+    if (this.state.alive !== nextState.alive) {
+      return true;
+    }
+
+    return false;
   }
 
   render() {
+    //console.log(this.props.data.index + ' cell rendered');
+
     return (
       <div className={'cell cell-' + this.cssClass() } onClick={this.toggleLife}></div>
     );
