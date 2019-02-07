@@ -1,4 +1,16 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# GOL
+An implementation of The Game of Life in react.
+
+## Roadmap
+* Add mouse click seeding
+* Screen size is equal to visible width/height.
+* Stop/Resume generations
+
+
+---
+
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
 
 ## Available Scripts
 
